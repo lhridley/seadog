@@ -1,0 +1,4 @@
+services:
+  seadog.authentication:
+    class: Drupal\seadog\Auth\ApiAuthentication
+    arguments: ['@key.repository']

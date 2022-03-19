@@ -1,0 +1,28 @@
+<?php
+
+namespace Drupal\seadog\Auth;
+
+use Drupal\key\KeyRepositoryInterface;
+
+/**
+ * Class ApiAuthentication.
+ * @package Drupal\seadog\Services
+ */
+class ApiAuthentication {
+
+  /**
+   * @var \Drupal\key\KeyRepositoryInterface
+   */
+  public $keyRepository;
+ 
+  /**
+   * Class constructuor.
+   * 
+   * @param Drupal\key\KeyRepositoryInterface $key_repository
+   *   Key module's KeyRepositoryInterface object.
+   */
+  public function __construct (KeyRepositoryInterface $key_repository) {
+    $this->keyRepository = $key_repository;
+  }
+
+}
