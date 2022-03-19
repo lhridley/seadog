@@ -1,0 +1,9 @@
+name: 'Sea Dog'
+description: 'Manage Digital Ocean assets'
+package: SeaDog
+
+type: module
+core_version_requirement: ^9.4 || ^10.0
+#configure:
+dependencies:
+ - key:key
