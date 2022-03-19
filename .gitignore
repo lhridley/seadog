@@ -46,3 +46,4 @@
 # Ignore SimpleTest multi-site environment.
 # simpletest
 .envrc
+composer.lock

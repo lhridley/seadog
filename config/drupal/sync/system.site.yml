@@ -1,0 +1,14 @@
+_core:
+  default_config_hash: l58O_yEXSo-SeJi19LXdzTU1tNJG3lmnIhCitRkM1tk
+langcode: en
+uuid: 8bd8a0c9-8847-4cb4-b073-48b5b6fd6818
+name: 'Sea Dog'
+mail: admin@example.com
+slogan: 'Where''s Sammy?'
+page:
+  403: ''
+  404: ''
+  front: /user/login
+admin_compact_mode: false
+weight_select_max: 100
+default_langcode: en
