@@ -3,6 +3,7 @@
 namespace Drupal\seadog\Auth;
 
 use Drupal\key\KeyRepositoryInterface;
+use DigitalOceanV2\Client;
 
 /**
  * Class ApiAuthentication.
@@ -11,18 +12,50 @@ use Drupal\key\KeyRepositoryInterface;
 class ApiAuthentication {
 
   /**
+   * The Key Repository for this module.
+   *
+   * @var string
+   */
+  protected $keyId = 'seadog';
+  /**
+   * The KeyRepository authentication manager for this module.
+   *
    * @var \Drupal\key\KeyRepositoryInterface
    */
-  public $keyRepository;
+  protected $keyRepository;
+
+  /**
+   * The DigitalOcean authenication client.
+   *
+   * @var string
+   */
+  protected $client;
  
   /**
    * Class constructuor.
-   * 
+   *
    * @param Drupal\key\KeyRepositoryInterface $key_repository
    *   Key module's KeyRepositoryInterface object.
    */
   public function __construct (KeyRepositoryInterface $key_repository) {
     $this->keyRepository = $key_repository;
+    // @todo Replace with Dependency Injection.
+    $this->client = new \DigitalOceanV2\Client();
+    $this->client->authenticate();
   }
 
+  /**
+   * Retrieves Digital Ocean PAT stored by key module.
+   */
+  public function getPat() {
+    return $this->keyRepository->getKey($this->keyId);
+  }
+
+  /**
+   * Digital Ocean Authenticator.
+   */
+  public function authenticate() {
+    $key = $this->getPat();
+    $client = $this->client->authenticate($key);
+  }
 }
